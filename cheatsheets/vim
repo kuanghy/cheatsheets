@@ -1,4 +1,5 @@
 ## 模式设置
+:set nocp         --不要工作在 Vi 兼容的模式下
 :set list         --显示不可视字符
 :set paste        --切换到粘贴模式
 :set nopaste      --取消粘贴模式
@@ -6,6 +7,8 @@
 :set nu
 :set nonumber     --隐藏行号
 :set nonu
+:set ic           --搜索时忽略大小写
+:set noic         --搜索时不忽略大小写
 :w !sudo tee %    --提权保存
 
 :set fileencoding　      --查看文件编码
