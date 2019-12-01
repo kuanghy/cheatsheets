@@ -1,0 +1,23 @@
+# Bash
+
+# 用 bash 执行一个命令字符串
+bash -c 'cd ~; pwd; ls'
+
+# 启动受限的 bash
+bash -r
+
+# 增强自动补全
+source /etc/bash_completion
+
+# 主键盘快捷键
+Ctrl-r  快速向后搜索历史命令
+Ctrl-s  快速向前搜索历史命令
+
+Ctrl-p  上一个(previous)
+Ctrl-n  下 一个(next)
+Ctrl-b  左，后退(backward)
+Ctrl-f  右，前进(forward)
+
+Ctrl-d  删除(delete)
+Ctrl-a  移动到开头(home)
+Ctrl-e  移动到结尾(end)

@@ -1,0 +1,23 @@
+# tar 创建归档文件
+
+# 参数
+-c  创建新的归档
+-x  释放归档文件
+-z  使用 gzip 格式解压缩
+-j  使用 bzip2 格式解压缩
+-J  使用 xz 格式解压缩
+-v  详细输出处理过程
+-f  指定归档文件
+-m  还原文件时把文件修改时间设为当前
+-t  列出归档文件内容
+-C, --directory=DIR
+    释放归档文件到指定目录
+
+# 打包文件夹
+tar czvf xxx.tar.gz xxx/
+
+# 解压文件
+tar zxvf xxx.tar.gz
+
+# 解压文件到指定目录
+tar zxvf xxx.tar.gz -C yyy/
