@@ -3,6 +3,10 @@
 # 用 bash 执行一个命令字符串
 bash -c 'cd ~; pwd; ls'
 
+# 从标准输入流中读取命令然后执行
+echo "cd ~; pwd; ls" | bash -s
+curl http://xxx.sh | bash -s
+
 # 启动受限的 bash
 bash -r
 
