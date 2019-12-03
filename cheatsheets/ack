@@ -1,3 +1,26 @@
 # ack 快速文本搜索工具
 
+# 参数
+-i, --ignore-case  忽略大小写
+-w, --word-regexp  强制单词匹配
+--nocolor  不对匹配字符着色
+--noheading  不在头上显示文件
+-l, --files-with-matches  仅输出匹配的文件名
+-L, --files-without-matches  仅输出不匹配的文件名
+--lines=NUM  只输出每个文件指定的行
 
+--help-type  查看支持的文件过滤类型
+--python  只搜索 python 文件
+--nopython  搜索时将 Python 文件除外
+
+-f  查看完全匹配字符串的文件
+-g  查找匹配正则表达式的文件
+
+# 查找时过滤源码文件
+ack --cpp -w occlient
+ack --python init
+
+# 文件查找
+ack -f hello.py  查找全匹配文件
+ack -g hello.py$  查找正则匹配文件
+ack -g hello --sort-files 查找文件然后排序
