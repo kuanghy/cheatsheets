@@ -1,0 +1,5 @@
+# Shell 脚本编程
+
+# 一行内完成 for 循环
+for name [ [ in [ word ... ] ] ; ] do list ; done
+for i in `seq 1 10`; do echo $i; done
