@@ -1,0 +1,21 @@
+# umount 磁盘卸载
+
+格式：
+
+umount [选项] [设备名或挂载点]
+
+选项：
+
+-a, --all               卸载所有文件系统（/etc/mtab 中记录的已挂载的文件系统）
+-A, --all-targets       卸载当前名字空间内指定设备对应的所有挂臷点
+-d, --detach-loop       若挂臷了 loop 设备，同时也释放该 loop 设备
+    --fake              空运行；跳过 umount(2) 系统调用
+-f, --force             强制卸载(遇到不响应的 NFS 系统时)
+-n, --no-mtab           不写 /etc/mtab
+-l, --lazy              立即断开文件系统，清理以后执行
+-O, --test-opts <列表>  限制文件系统集合(和 -a 选项一起使用)
+-R, --recursive         递归卸载目录及其子对象
+-r, --read-only         若卸载失败，尝试以只读方式重新挂臷
+-t, --types <列表>      限制文件系统集合
+-v, --verbose           打印当前进行的操作
+-q, --quiet             忽略错误信息
