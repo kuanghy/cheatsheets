@@ -1,0 +1,42 @@
+# grep 文本搜索工具
+
+# 参数
+
+-i  参数可以忽略大小写
+-u  参数搜索一个单词而不是搜索含该单词的字符串
+-A  显示匹配行之后的 n 行
+-B  显示匹配行之前的 n 行
+-C  显示匹配行前后的 n 行
+-r  对目录进行递归搜索
+-v  搜索不匹配字符串的行
+-c  统计匹配的行数
+-l  只显示含字符串的文件的文件名
+-n  显示匹配行的行号
+--line-buffered  使用行缓冲而不是默认的块缓冲
+
+# 显示匹配行后的 3 行
+grep -A 3 "string" filename
+
+# 显示匹配行之前的 3 行
+grep -B 3 "string" filename
+
+# 显示匹配行前后的 3 行
+grep -C 3 "string" filename
+
+# 在当前目录下递归搜索含指定字符串的文件
+grep -r "this" .
+
+# 显示不含指定字符串的行
+grep -v "go" demo_text
+
+# 显示包含指定字符串的行的总行数
+grep -c "go" filename
+
+# 显示包含指定字符串的文件的文件名
+grep -l "this" filename
+
+# 显示行号
+grep -n "this" filename
+
+# 与 tail 连用，实时过略日志
+tail -f file | grep --line-buffered "error"
