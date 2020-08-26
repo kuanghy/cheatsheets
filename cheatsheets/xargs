@@ -1,0 +1,5 @@
+# xargs
+
+
+# 输出当前目录下所有 git 仓库的远程地址
+find . -maxdepth 2 -name ".git" | xargs -i git --git-dir={} remote -v
