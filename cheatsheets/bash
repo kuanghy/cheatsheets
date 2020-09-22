@@ -25,3 +25,7 @@ Ctrl-f  右，前进(forward)
 Ctrl-d  删除(delete)
 Ctrl-a  移动到开头(home)
 Ctrl-e  移动到结尾(end)
+
+# 在一行内实现循环
+while true; do foo; sleep 2; done
+for i in `seq 1 10`; do echo $i; done
