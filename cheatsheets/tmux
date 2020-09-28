@@ -1,0 +1,9 @@
+# tmux
+
+# 同步当前窗口下的所有窗格
+（Ctrl-B :）进入命令模式，执行一下命令：
+
+```
+:setw synchronize-panes on   # 开启窗口同步
+:setw synchronize-panes off  # 关闭窗口同步
+```

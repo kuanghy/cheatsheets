@@ -1,5 +1,55 @@
 # xargs
 
+将标准输入转为命令行参数, 通常与管道一起使用
+
+（管道的作用是将左侧命令的标准输出转换为标准输入提供给右侧命令）
+
+# 常用参数
+-t  表示先打印命令，然后再执行
+-p  当每次执行一个 arg 的时候询问一次用户
+-d delim  分隔符，默认换行符和空格作为分隔符
+-0，--null 以 null，即 '\0' 作为分隔符，接受到的特殊字符将当作文本符号处理
+-n num  表示命令在执行的时候一次用的 arg 的个数，默认是用所有的
+-L num  指定多少行作为一个命令行参数，即先已换行符作为分隔符
+-i flag  指定参数替换符号，默认是 {}，该参数是过时，不建议使用
+-I flag  与 -i 同样的功能，但需要自己使用替换符号（此时默认以换行符作为分隔符）
+-a，--arg-file file  从指定文件中读入作为标准输入
+-P，--max-procs num  多进程并发执行
+
+# 参数 -n 与 -L 的区别
+```
+$ echo -e 'a b\nc' | xargs -n 1
+a
+b
+c
+
+$ echo -e 'a b\nc' | xargs -L 1
+a b
+c
+```
+
+# 替换符使用示例
+```
+$ echo -e 'a\nb\nc' | xargs -n1 -i echo "{} {}"
+a a
+b b
+c c
+
+$ echo -e 'a\nb\nc' | xargs -n1 -I$ echo "$ $"
+a a
+b b
+c c
+```
+
+# find 的 -print0 参数指定输出的文件列表以 null 分隔
+# 可以配合 xargs 的 -0 参数使用，可以解决文件名包含空格的问题
+find /path -type f -print0 | xargs -0 rm
 
 # 输出当前目录下所有 git 仓库的远程地址
 find . -maxdepth 2 -name ".git" | xargs -i git --git-dir={} remote -v
+
+# 字符串分隔
+echo -e 'a,b,c' | tr , '\0' | xargs -0 -n 1
+
+# 分隔字符串时会多出来一个空行，可以用 sed 先去除
+ echo "a,b,c" | xargs -d, -n1 | sed '$d'
