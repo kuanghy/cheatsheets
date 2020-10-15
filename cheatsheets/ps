@@ -30,10 +30,13 @@ ps aux | less -S
 ps -efww
 
 # 自定义显示的字段
-ps -o uid,pid,ppid,pgid,sid,tty,time,f,s,pri,sz,tty,cmd,comm
+ps -o uid,pid,ppid,pgid,pir,sid,tty,time,f,s,pri,sz,tty,cmd,comm
 
 # 查看进程真实的启动时间
 ps -o pid,lstart,cmd -p <PID>
+
+# 查看进程在哪个 CPU 上运行
+ps -o pid,psr,pcpu,args -p <PID>
 
 # 实时监控进程的 CPU 和 内存
 watch -n 1 'ps -aux --sort -pmem, -pcpu | head 20'
