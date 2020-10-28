@@ -1,1 +1,6 @@
 # netstat 网络状态查看工具
+
+
+# 查看本机正在开放（监听）的端口
+netstat -nupl    # 查看 UDP 类型的端口
+netstat -ntpl    # 查看 TCP 类型的端口
