@@ -5,6 +5,7 @@
 -w, --word-regexp  强制单词匹配
 --nocolor  不对匹配字符着色
 --noheading  不在头上显示文件
+-H, --with-filename  输出匹配的文件名
 -l, --files-with-matches  仅输出匹配的文件名
 -L, --files-without-matches  仅输出不匹配的文件名
 --lines=NUM  只输出每个文件指定的行
