@@ -1,0 +1,49 @@
+# curl 数据传输工具
+
+curl 利用 URL 规则在命令行下工作的数据传输工具。其支持上传和下载，且支持包括 HTTP、HTTPS、ftp 等众多协议，还支持 POST、cookies、认证、断点上传下载、用户代理字符串、限速、文件大小、进度条等特征。
+
+# 常用参数：
+
+-s, --silent  静默模式，不显示额外的输出（如不会输出错误和进度信息）
+-S, --show-error  出错时显示详细的错误信息
+-I, --head  查看请求头信息
+-i, --include  查看响应头信息
+-L, --location  自动跳转（遇到重定向时）
+-e, --referer  指定参考页链接（即指定 Referer 头信息）
+-A, --user-agent STRING  设置 User-Agent 头信息
+-H, --header LINE  定制请求头
+-b, --cookie STRING/FILE  指定 Cookie 信息
+-c, --cookie-jar FILE  将 Cookie 信息写到文件
+-O, --remote-name  保存到与服务器同名的文件中
+-o, --output FILE  保存到指定的文件中
+-l, --list-only  列出服务器目录结构（如果服务器支持）
+-C, --continue-at OFFSET  断点续传（OFFSET 为 - 时可自动检测断点）
+-u, --user USER[:PASSWORD][;OPTIONS]  指定账户信息
+--limit-rate RATE  传输速率限制
+
+# 访问网址
+curl http://konghy.cn
+
+# 下载文件
+curl http://konghy.cn/test.txt -o test.txt
+
+# 断点下载（需要指定下载中断时的字节数，使用破折号 - 可自动检测）
+curl --remote-name --continue-at - "https://example.com/linux-distro.iso"
+
+# 仅查看响应头信息
+curl -I blog.konghy.cn
+
+# 遇到 3xx 重定向时自动跳转
+curl --location http://baidu.com
+
+#  指定 Cookie 信息
+curl http://konghy.cn --cookie "user=root;pass=123456"
+
+# 指定额外的请求头
+curl -H "Host:man.linuxde.net" -H "accept-language:zh-cn" http://konghy.cn
+
+# 限制传输速率
+curl --limit-rate 50k http://konghy.cn
+
+# 完成 HTTP 或者 FTP 的认证
+curl -u user:pwd http://konghy.cn
