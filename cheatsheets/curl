@@ -14,12 +14,19 @@ curl 利用 URL 规则在命令行下工作的数据传输工具。其支持上�
 -H, --header LINE  定制请求头
 -b, --cookie STRING/FILE  指定 Cookie 信息
 -c, --cookie-jar FILE  将 Cookie 信息写到文件
+-X, --request COMMAND  指定请求的方法，如 POST
+-d, --data DATA  指定 HTTP 的 POST 请求数据体（可读取本地文本文件的数据）
+--data-urlencode DATA  对 POST 请求数据进行 URL 编码后再发送
+-k, --insecure  跳过 SSL 验证
+-x, --proxy [protocol://]host[:port] 指定代理
 -O, --remote-name  保存到与服务器同名的文件中
 -o, --output FILE  保存到指定的文件中
 -l, --list-only  列出服务器目录结构（如果服务器支持）
 -C, --continue-at OFFSET  断点续传（OFFSET 为 - 时可自动检测断点）
 -u, --user USER[:PASSWORD][;OPTIONS]  指定账户信息
 --limit-rate RATE  传输速率限制
+--trace FILE  写入调试信息到文件（会输出详细的连接过程，以及传输的二进制数据）
+-v, --verbose  输出连接过程中的详细信息
 
 # 访问网址
 curl http://konghy.cn
@@ -47,3 +54,18 @@ curl --limit-rate 50k http://konghy.cn
 
 # 完成 HTTP 或者 FTP 的认证
 curl -u user:pwd http://konghy.cn
+
+# 发送 POST 请求
+curl -X POST https://www.example.com
+
+# 从文件中读取 POST 数据并发送
+curl -d '@data.txt' https://google.com/login
+
+# 对 POST 数据进行 URL 编码后再发送
+curl --data-urlencode 'comment=hello world' https://google.com/login
+
+# 输出详细的调试信息
+curl --trace - https://www.example.com
+
+# 使用代理
+curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com
