@@ -21,3 +21,9 @@ tar zxvf xxx.tar.gz
 
 # 解压文件到指定目录
 tar zxvf xxx.tar.gz -C yyy/
+
+# 列出归档文件中的内容
+tar -ztf xxx.tar.gz
+
+# 只解压指定文件
+tar -zxvf xxx.tar.gz path/to/file

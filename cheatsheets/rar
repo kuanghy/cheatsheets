@@ -1,0 +1,55 @@
+# rar 压缩文件
+
+RAR 是一种文件压缩与归档的私有文件格式，用于数据压缩与归档打包。命令格式：
+
+rar <command> -<switch> -<switch> ... <files...>
+
+# 常用命令
+a 添加文件到压缩文件
+d 删除压缩文件中的文件
+e 解压压缩文件到当前目录
+f 刷新压缩文件中的文件
+l[t,b] 列出压缩文件，t 显示更详细的信息，b 表示简洁模式
+t 检查压缩文件完整性
+u 更新压缩文件中的文件
+x 解压文件，保持压缩包中完整的路径
+
+常用选项：
+
+df 压缩后删除原文件
+ed 不添加空目录
+ep 从名称中排除路径
+o+ 覆盖已存在文件
+o- 不覆盖已存在文件
+p[密码] 设置密码
+p- 不询问密码
+r 递归子目录
+w<路径> 指定工作目录
+x<文件> 排除指定的文件
+y 假设对全部询问都回答是
+
+解压文件还可以用 unrar 命令，其是 rar 的一个硬链接，用法与 rar 类似
+
+# 查看压缩文件内容
+rar l test.rar
+unrar l test.rar
+
+# 压缩所有 jpg 文件，压缩文件会自动添加 rar 后缀
+rar a all *.jpg
+
+# 压缩目录
+rar a 2020.rar 2020
+
+# 压缩后删除原文件
+rar a -df test.rar test
+
+# 将文件解压到当前目录
+rar e test.rar
+unrar e test.rar
+
+# 解压时保持压缩文件的目录结构
+rar x test.rar
+unrar x test.rar
+
+# 解压时覆盖已存在文件
+unrar x -o+ test.rar

@@ -1,0 +1,39 @@
+# gzip 文件压缩工具
+
+使用广泛的压缩程序，通常用于对文件进行压缩，压缩率大概能达到 60%-70%，但是不能压缩文件夹，并且默认压缩完原文件不保留，压缩文件扩展名为 .gz
+
+gunzip 用于解压缩文件，其是 gzip 的硬连接
+
+# 参数：
+-c, --stdout      将压缩后的数据写到标准输出，并保留原文件
+-d, --decompress  解压
+-f, --force       强行压缩，不理会文件名称或硬连接是否存在以及该文件是否为符号连接
+-k, --keep        保留原文件（不删除输入文件）
+-l, --list        列出压缩文件的内容
+-n, --no-name     解压缩时忽略原文件名和时间戳
+-N, --name        解压缩时保存原文件名和时间戳
+-q, --quiet       忽略警告
+-r, --recursive   递归处理目录
+-S, --suffix=SUF  解压缩时指定压缩文件后缀
+-t, --test        检查压缩文件的完整性
+-v, --verbose     显示详细的解压缩过程
+-1, --fast        指定最低压缩率
+-9, --best        指定最高压缩率（压缩率可以指定为 1 到 9）
+--rsyncable       生成对 rsync 友好的压缩文件
+
+# 压缩文件
+gzip filename
+gzip -S .2020.gz filename
+
+# 解压文件
+gunzip filename.gz
+gunzip -S .2020.gz filename.2020.gz
+gzip -d filename.gz
+gzip -S .2020.gz -d filename.2020.gz
+
+# 保留源文件
+gzip -k filename
+gzip –c filename > filename.gz
+
+# 递归压缩目录中的文件，并显示压缩过程
+gzip -v -r dir/
