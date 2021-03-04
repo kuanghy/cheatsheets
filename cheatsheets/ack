@@ -10,6 +10,10 @@
 -L, --files-without-matches  仅输出不匹配的文件名
 --lines=NUM  只输出每个文件指定的行
 
+-A NUM  同时输出匹配行后的 NUM 行
+-B NUM  同时输出匹配行前的 NUM 行
+-C NUM  同时输出匹配行前后的 NUM 行
+
 --help-type  查看支持的文件过滤类型
 --python  只搜索 python 文件
 --nopython  搜索时将 Python 文件除外

@@ -1,0 +1,23 @@
+# axel
+
+axel 是 Unix 下一个不错的 HTTP/FTP 高速下载工具。支持多线程下载、断点续传。
+
+# 参数
+--max-speed=x           -s x    最大速率
+--num-connections=x     -n x    指定最大连接数
+--output=f              -o f    指定文件名；如果是目录，则将文件下载至该目录
+--header=x              -H x    添加 HTTP 头
+--user-agent=x          -U x    设置 HTTP user agent
+--no-proxy              -N      不使用任何代理服务器
+--insecure              -k      不验证 SSL 证书
+--no-clobber            -c      如果存在则跳过
+--quiet                 -q      静默模式
+--verbose               -v      更多状态信息
+--alternate             -a      显示进度条
+--timeout=x             -T x    连接超时时间
+
+# 限制下载速度为 1MB/s
+axel -s 1024000 http://xxx/xxx
+
+# 使用 10 个线程，将文件下载到 /tmp 目录
+axel -n 10 -o /tmp http://xxx/xxx
