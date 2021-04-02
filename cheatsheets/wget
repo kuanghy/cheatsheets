@@ -1,0 +1,71 @@
+# wget
+
+文件下载
+
+# 常用参数
+```
+-b,  --background            启动后转入后台
+-o,  --output-file=FILE      将日志信息写入 FILE
+-i,  --input-file=FILE       下载本地或外部 FILE 中的 URLs
+-t,  --tries=NUMBER          设置重试次数为 NUMBER (0 代表无限制)
+-O,  --output-document=FILE  将文档写入 FILE
+-c,  --continue              断点续传下载文件
+-N,  --timestamping          只获取比本地文件新的文件
+-T,  --timeout=SECONDS       将所有超时设为 SECONDS 秒。
+--dns-timeout=SECS           设置 DNS 查寻超时为 SECS 秒。
+--connect-timeout=SECS       设置连接超时为 SECS 秒。
+--read-timeout=SECS          设置读取超时为 SECS 秒
+-w,  --wait=SECONDS          等待间隔为 SECONDS 秒。
+--waitretry=SECONDS      在获取文件的重试期间等待 1..SECONDS 秒
+--no-proxy               禁止使用代理
+--limit-rate=RATE        限制下载速率为 RATE。
+--no-dns-cache           关闭 DNS 查寻缓存
+--ignore-case            匹配文件/目录时忽略大小写
+-user=USER               将 ftp 和 http 的用户名均设置为 USER。
+--password=PASS          将 ftp 和 http 的密码均设置为 PASS。
+--ask-password           提示输入密码。
+--http-user=USER         设置 http 用户名为 USER。
+--http-password=PASS     设置 http 密码为 PASS。
+--no-check-certificate   不要验证服务器的证书
+--header=STRING          在头部插入 STRING
+--referer=URL            在 HTTP 请求头包含 Referer: URL
+-U,  --user-agent=AGENT  标识为 AGENT 而不是 Wget/VERSION
+--load-cookies=FILE      会话开始前从 FILE 中载入 cookies。
+--save-cookies=FILE      会话结束后保存 cookies 至 FILE
+--post-data=STRING       使用 POST 方式；把 STRING 作为数据发送。
+--post-file=FILE         使用 POST 方式；发送 FILE 内容
+--ftp-user=USER          设置 ftp 用户名为 USER。
+--ftp-password=PASS      设置 ftp 密码为 PASS。
+-r,  --recursive         指定递归下载。
+-l,  --level=NUMBER      最大递归深度 (inf 或 0 代表无限制，即全部下载)
+```
+
+# 下载单个文件
+wget http://files.org/file.tar.gz
+
+# 指定撒保存的文件名
+wget http://files.org/file.tar.gz -O file-new.tar.gz
+
+# 同时下载过个文件（接多个文件 url 地址）
+wget http://files.org/file.tar.gz ftp://ftp.files.org/file.tar.gz
+
+# 从文件中读取下载地址，实现批量下载
+wget -i /opt/wget/url.txt
+
+# 断点续传下载
+wget -c http://files.org/file.tar.gz
+
+# 后台下载
+wget -b http://files.org/file.tar.gz
+
+# 限制下载速率
+wget --limit-rate=100k http://files.org/file.tar.gz
+
+# 下载 FTP 指定文件并保存到指定文件中
+wget ftp://ftp.files.org/file.tar.gz \
+     --ftp-user "user" \
+     --ftp-password "passwd" \
+     -O "new-file"
+
+# 递归下载 FTP 指定文件夹保存到当前目录
+wget -r ftp://user:password@192.168.0.100:7912/data/

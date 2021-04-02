@@ -1,0 +1,20 @@
+# timeout
+
+运行一个有时间限制的命令
+
+timeout [OPTION] DURATION COMMAND [ARG]...
+
+时间（DURATION）单位可以是 s 代表秒(默认值)，m 代表分， h 代表小时，d 代表天
+
+参数：
+-s, --signal=SIGNAL  指定在超时时发送的信号，默认为 SIGTERM
+-k, --kill-after=DURATION  超时后一段时间没进程仍然在运行则强制结束
+--foreground  前台运行，默认在后台运行
+
+# 手动指定超时后发送的信号
+timeout -s SIGKILL 5s ping www.baidu.com
+timeout -s 9 5s ping www.baidu.com
+
+# 设置一分钟超时，如果超时后 10 秒进程还未结束则强制 kill 掉
+timeout -k 10s 1m sh test.sh
+
