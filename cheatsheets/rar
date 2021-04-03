@@ -2,7 +2,7 @@
 
 RAR 是一种文件压缩与归档的私有文件格式，用于数据压缩与归档打包。命令格式：
 
-rar <command> -<switch> -<switch> ... <files...>
+rar <command> -<switch> -<switch> ... <files...> <path_to_extract\>
 
 # 常用命令
 a 添加文件到压缩文件
@@ -54,3 +54,6 @@ unrar x test.rar
 
 # 解压时覆盖已存在文件
 unrar x -o+ test.rar
+
+# 解压到指定目录
+unrar x test.rar /path/to/
