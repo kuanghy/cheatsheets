@@ -1,0 +1,22 @@
+# chown
+
+改变文件的所属用户或组
+
+# 常用参数
+-c, --changes          显示更改的部分的信息
+-f, --silent, --quiet  忽略错误信息
+-R, --recursive        递归处理指定目录以及其子目录下的所有文件
+--reference            参考指定文件或目录的用户和组
+-h, --no-dereference   只对符号链接的文件本身做修改，而不更改其他任何相关文件
+--dereference          作用于符号链接的指向，而不是链接文件本身，与 -h 参数相反
+-v, --verbose          显示详细的处理信息
+
+# 改变文件的所有者：
+chown www-data test
+chown www-data: test
+
+# 改变文件的所属组：
+chown :www-data test
+
+# 同时改变文件的所有者和所属组：
+chown huoty:huoty test
