@@ -1,0 +1,29 @@
+# trap
+
+捕捉信号和其他事件并执行指定动作，常见的用途是在脚本程序被中断时完成清理
+
+命令格式：
+
+```
+trap [arg] sigspec
+```
+
+arg 表示接收到信号时执行的动作
+sigspec 表示信号名称或信号名称对应的数字
+
+除信号外的其他事件
+EXIT  当程序运行结束时
+ERR   当程序运行出错时
+
+# 进程退出时杀掉其所有的子进程
+trap "pkill -P $$" EXIT
+
+# 收到终止信号时自动删除文件并退出
+trap "rm -f $WORKDIR/work1 $WORKDIR/dataout; exit" 2
+
+# 忽略信号
+trap '' 2
+
+# 忽略多个信号
+trap '' 1 2 3 15
+trap '' HUP INT QUIT TSTP

@@ -1,0 +1,30 @@
+# pkill
+
+根据进程名或其他属性查找进程并发送信号
+
+# 常用参数
+-<sig>, --signal <sig>    指定要发送的信号
+-e, --echo                显示被杀掉的进程
+-f, --full                使用完成的进程名来匹配
+-g, --pgroup <PGID,...>   杀死指定的进程组
+-i, --ignore-case         匹配时忽略大小写
+-P, --parent <PPID,...>   匹配指定父进程的所有子进程
+-s, --session <SID,...>   匹配指定的会话 ID
+-t, --terminal <tty,...>  匹配控制终端
+-u, --euid <ID,...>       匹配用户 effective ID
+-U, --uid <ID,...>        匹配用户真实的 ID
+
+# 杀死所有 nginx 进程
+pkill nginx
+
+# 杀死所有 'python -m' 启动的进程
+pkill -f 'python -m'
+
+# 杀死进程组 12345
+pkill -9 -g 12345
+
+# 杀死控制终端为 pts/1 的所有进程（剔除用户）
+pkill -9 pts/1
+
+# 杀死指定进程的所有子进程
+pkill -9 -P 1234
