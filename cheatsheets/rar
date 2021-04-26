@@ -57,3 +57,6 @@ unrar x -o+ test.rar
 
 # 解压到指定目录
 unrar x test.rar /path/to/
+
+# 解压时指定密码
+unrar x -o+ -pPASSWORD test.rar /path/to
