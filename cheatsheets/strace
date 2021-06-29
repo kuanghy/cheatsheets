@@ -1,0 +1,67 @@
+# strace
+
+跟踪系统调用和信号
+
+参数：
+-h 输出简要的帮助信息
+-c 统计每一系统调用的所执行的时间，次数和出错的次数等
+-d 输出 strace 关于标准错误的调试信息
+-f 跟踪由 fork 调用所产生的子进程
+-ff 如果提供 -o filename，则所有进程的跟踪结果输出到相应的 filename.pid 中， pid
+是各进程的进程号
+-F 尝试跟踪 vfork 调用，在 -f 时，vfork 不被跟踪
+-i 输出系统调用的入口指针
+-q 禁止输出关于脱离的消息
+-r 打印出相对时间，关于每一个系统调用
+-t 在输出中的每一行前加上时间信息
+-tt 在输出中的每一行前加上时间信息，微秒级
+-ttt 在输出中的每一行前加上当前时间戳，精确到微秒
+-T 显示每一调用所耗的时间
+-v 输出完整的系统调用信息，对于某些相关调用，把完整的环境变量，文件 stat
+结构等打出来
+-x 以十六进制形式输出非标准字符串
+-xx 所有字符串以十六进制形式输出
+-a 设置返回值的输出位置，默认为 40
+-e 指定一个表达式，用来控制如何跟踪
+-o 将 strace 的输出写入文件 filename
+-p 跟踪指定 pid 的进程
+-s 指定输出的字符串的最大长度，默认为 32，文件名总是全部输出
+-u 以 username 的 UID 和 GID 执行被跟踪的命令
+
+# 跟踪命令执行时的系统调用
+strace df -h
+
+# 跟踪已经运行的进程
+strace -p PID
+
+# 追踪的每一系统调用的耗时、次数和失败数
+strace -c -p PID
+
+# 显示每一次系统调用的的指令指针
+strace -i df -h
+
+# 显示每次系统调用的时间，-tt 可输出微妙级时间，-ttt 可输出微妙级时间戳
+strace -t df -h
+strace -tt df -h
+strace -ttt df -h
+
+# 显示系统调用的耗时
+strace -T df -h
+
+# 显示一些 debug 信息
+strace -d df -h
+
+# 将追踪结果写入到文件
+strace -o df_debug.txt df -h
+
+# 只追踪特定的系统调用
+strace -e trace=write df -h
+strace -e trace=open,close,read,write df -h
+
+# 基于特定条件的系统调用
+# 可以针对特定类型进行追踪(process、file、memory、network、signal)等等
+strace -q -e trace=process df -h
+strace -q -e trace=file df -h
+strace -q -e trace=memory df -h
+strace -e trace=network df -h
+strace -e trace=signal df -h
