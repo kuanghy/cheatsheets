@@ -43,7 +43,7 @@
 # 下载单个文件
 wget http://files.org/file.tar.gz
 
-# 指定撒保存的文件名
+# 下载到指定的文件中
 wget http://files.org/file.tar.gz -O file-new.tar.gz
 
 # 同时下载过个文件（接多个文件 url 地址）
