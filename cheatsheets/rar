@@ -61,5 +61,5 @@ unrar x test.rar /path/to/
 # 解压时指定密码
 unrar x -o+ -pPASSWORD test.rar /path/to
 
-# 直接压指定文件
+# 只解压指定文件
 unrar e test.rar path/to/file1 path/to/file2

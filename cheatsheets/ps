@@ -20,9 +20,6 @@ ps aux
 # 同时查找多个关键字的进程
 ps aux | grep -E "aaa|bbb"
 
-# 查看进程中的线程
-ps -L <PID>
-
 # 解决长输出被自动截短的问题
 ps auxww
 ps aux | less
@@ -30,7 +27,7 @@ ps aux | less -S
 ps -efww
 
 # 自定义显示的字段
-ps -o uid,pid,ppid,pgid,pir,sid,tty,time,f,s,pri,sz,tty,cmd,comm
+ps -o uid,user,pid,ppid,pgid,sid,spid,tid,lwp,nlwp,ni,pri,tty,stat,s,f,rss,sz,vsz,pcpu,pmem,addr,psr,start,time,cmd
 
 # 查看进程真实的启动时间
 ps -o pid,lstart,cmd -p <PID>
@@ -40,6 +37,14 @@ ps -o pid,psr,pcpu,args -p <PID>
 
 # 实时监控进程的 CPU 和 内存
 watch -n 1 'ps -aux --sort -pmem, -pcpu | head 20'
+
+# 查看进程中的线程
+ps -L <PID>
+ps -T <PID>
+ps -o pid,lwp,tty,stat,pcpu,time,cmd -L <PID>
+
+LWP 为 light weight process (or thread)，轻量级进程，即线程标识符，等同于 spid，tid
+NLWP 为 number of lwps(threads) in the process, 线程的数量
 
 # 进程的五种基本状态
 R: 运行，正在运行或在运行队列中等待

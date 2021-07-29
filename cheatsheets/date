@@ -23,3 +23,8 @@ date -d tomorrow +%F       # 明天
 date -d "+1 day" +%F       # 后一天
 date -d 'next monday' +%F  # 下一个星期一
 
+# 获取当前时间戳
+date +%s
+
+# 将时间戳转化为可读的时间格式
+date -d@1234567890 +"%Y-%m-%d %H:%M:%S"

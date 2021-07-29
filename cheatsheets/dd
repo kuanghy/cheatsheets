@@ -1,0 +1,10 @@
+# dd
+
+# 快速生成大文件
+dd if=/dev/zero of=file.img bs=1M count=1024
+
+# 安全擦除硬盘数据
+dd if=/dev/urandom of=/dev/sda
+
+# 快速制作系统盘
+dd if=ubuntu-server-amd64.iso of=/dev/sdb
