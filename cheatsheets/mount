@@ -32,3 +32,6 @@ mount -t smbfs -o username=admin,password=123456 //10.140.133.23/c$ /mnt/samba
 
 # 挂载 NFS 文件共享
 mount -t nfs -o rw 10.140.133.9:/export/home/sunky /mnt/nfs
+
+# 将目录挂载到另一个目录
+mount --bind /some/where /else/where
