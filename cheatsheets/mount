@@ -4,10 +4,14 @@
 
 mount [-fnrsvw] [-t vfstype] [-o options] 设备 挂载点
 
-示例：
 
-# 在不指定任何参数的情况下默认列出所有挂载的文件系统
+# 在不指定任何参数的情况下默认列出所有挂载的文件系统，等同于加 -l 参数
 mount
+mount -l
+
+# findmnt 命令也可以查看所有挂载
+findmnt
+findmnt -l
 
 # 列出所有指定类型的文件系统
 mount -t tmpfs
