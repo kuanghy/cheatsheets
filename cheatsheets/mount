@@ -32,10 +32,10 @@ mount /dev/cdrom /mnt
 mount -o loop -t iso9660 mydisk.iso /mnt/vcdrom
 
 # 挂载 Windows 文件共享（其中 c$ 表示磁盘分区）
-mount -t smbfs -o username=admin,password=123456 //10.140.133.23/c$ /mnt/samba
+mount -t smbfs -o username=admin,password=123456 //192.168.8.18/c$ /mnt/samba
 
 # 挂载 NFS 文件共享
-mount -t nfs -o rw 10.140.133.9:/export/home/sunky /mnt/nfs
+mount -t nfs -o rw,nolock,rsize=1048576,wsize=1048576 192.168.8.18:/export/data /mnt/nfs
 
 # 将目录挂载到另一个目录
 mount --bind /some/where /else/where
