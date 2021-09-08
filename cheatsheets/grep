@@ -1,18 +1,21 @@
 # grep 文本搜索工具
 
 # 参数
-
+-a  将二进制文件按文本文件的形式进行搜索
 -i  参数可以忽略大小写
 -u  参数搜索一个单词而不是搜索含该单词的字符串
 -A  显示匹配行之后的 n 行
 -B  显示匹配行之前的 n 行
 -C  显示匹配行前后的 n 行
 -r  对目录进行递归搜索
+-R  对目录进行递归搜索，即使是符号链接也尝试递归
 -v  搜索不匹配字符串的行
 -c  统计匹配的行数
 -l  只显示含字符串的文件的文件名
 -n  显示匹配行的行号
 --line-buffered  使用行缓冲而不是默认的块缓冲
+--exclude  排除文件
+--exclude-dir  排除目录
 
 # 显示匹配行后的 3 行
 grep -A 3 "string" filename
@@ -40,3 +43,10 @@ grep -n "this" filename
 
 # 与 tail 连用，实时过略日志
 tail -f file | grep --line-buffered "error"
+
+# 排除指定文件
+grep -rl --exclude=*.{png,jpg} "hello" *
+
+# 排除指定目录
+grep -Rw --exclude-dir=pki "hello" /etc/
+grep -r --exclude-dir={proc,boot,sys} "hello" /
