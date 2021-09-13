@@ -1,0 +1,13 @@
+# sed 文本过滤与转换的流编辑器
+
+# 全局替换
+seg 's/text/replace_text/g' file
+
+# 默认替换后，输出替换后的内容（如果需要直接修改原文件，使用 -i 参数）
+seg -i 's/text/repalce_text/g' file
+
+# 替换每一行的第一处匹配的text
+seg 's/text/replace_text/' file
+
+# 移除空白行
+sed '/^$/d' file

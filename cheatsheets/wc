@@ -1,0 +1,10 @@
+# wc 文本统计工具
+
+# 统计行数
+wc -l file
+
+# 统计单词数
+wc -w file
+
+# 统计字符数
+wc -c file
