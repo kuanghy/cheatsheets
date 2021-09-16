@@ -1,0 +1,9 @@
+# find
+
+# 参数
+-regex  使用整个表达式
+-iregex  使用正则表达式时忽略大小写
+-regextype  指定正则表示的类型，如 posix-basic，posix-egrep，posix-extended
+
+# 使用正则表达式时需要匹配完整的路径
+find . -regex '.*test.log.2021-0[1-8].*'
