@@ -1,0 +1,28 @@
+# man 帮助手册
+
+用法： man [OPTION...] [SECTION] PAGE...
+
+# 常用参数
+-f, --whatis  等价于 whatis 命令，显示给定关键字的简短描述信息
+-k, --apropos  等价于 apropos 命令，模糊匹配给定的关键字
+-w, --where, --path, --location 查看 man 手册位置
+-a, --all  在所有的 man 帮助手册中搜索
+-M, --manpath=PATH  指定手册的搜索路径
+-P, --pager=PAGER  指定分页程序
+
+# man 手册的章节
+
+1 标准命令，普通用户可以使用的系统命令
+2 系统调用，只有系统才能执行的函数
+3 库函数，大多是 libc 函数，如 qsort(3)
+4 设备和特殊文件
+5 文件格式和约定
+6 游戏
+7 宏命令包和约定
+8 系统管理命令，多数只有 root 可以执行
+9 内核程序
+
+# 查看内置命令
+
+一些 shell 内建的命令没有 man 帮助手册，在一些系统中可以使用 help命令查看帮助
+如：help cd

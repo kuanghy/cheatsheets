@@ -7,3 +7,6 @@
 
 # 使用正则表达式时需要匹配完整的路径
 find . -regex '.*test.log.2021-0[1-8].*'
+
+# 查找当前目录下的目录
+find . -maxdepth 1 -mindepth 1 -type d
