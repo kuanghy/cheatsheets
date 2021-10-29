@@ -1,4 +1,25 @@
-# sed 文本过滤与转换的流编辑器
+# sed 文本过滤与转换的流编辑器（stream editor）
+
+用法： sed [选项]... {脚本指令} [输入文件]
+
+# 常用参数
+-n, --quit, --silent 静默输出，即仅输出被处理的行
+-i, --in-place 直接修改源文件，慎用
+-e script 允许多个脚本指令被执行
+-f script-file 从文件中读取脚本指令，对编写自动脚本程序很实用
+-1N 指定 1 指令可以输出的行长度，1 指令为输出非打印字符
+--posix 禁用 GNU sed 扩展功能
+-r 在脚本指令中使用扩展正则表达式
+-s, --separate 默认情况下，sed 将把输入的多个文件名作为一个长的连续的输入流
+    而 GNU sed 则允许将其当作单独的文件
+-u, --unbuffered 最低限度的缓存输入与输出
+
+# 常用指令
+a：append，追加文本
+i：insert，插入文本
+d：delete，删除文本
+s: 模式匹配替换
+p：打印文本
 
 # 全局替换
 seg 's/text/replace_text/g' file
@@ -11,3 +32,6 @@ seg 's/text/replace_text/' file
 
 # 移除空白行
 sed '/^$/d' file
+
+# 输出文件中指定范围的行，如输出文件 8~18 行内容
+sed -n '8,18p' file
