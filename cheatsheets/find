@@ -1,12 +1,51 @@
 # find
 
 # 参数
+-name  匹配文件名
+-iname  匹配文件名，忽略大小写
+-type  匹配文件类型
+-user  匹配用户
+-size  匹配文件大小
+-mtime，-atime，-ctime  # 匹配时间
+-newer，-anewer，-cnewer
+-amin，-cmin
 -regex  使用整个表达式
 -iregex  使用正则表达式时忽略大小写
 -regextype  指定正则表示的类型，如 posix-basic，posix-egrep，posix-extended
+
+# 逻辑运行算参数
+-a
+-o
+-not
+
+# 文件类型
+f 普通文件
+d 目录
+b 块设备文件
+c 字符设备文件
+l 符号链接
+s 套接字
+p 管道文件
 
 # 使用正则表达式时需要匹配完整的路径
 find . -regex '.*test.log.2021-0[1-8].*'
 
 # 查找当前目录下的目录
 find . -maxdepth 1 -mindepth 1 -type d
+
+# 查找非 gz 压缩的文件
+find ~/logs -type f -a -not -name "*.gz"
+
+# 按文件大小查找
+find ./ -size 1k  # 查找当前目录下小于 1k 的文件
+find -size +1M    # 查找当前目录下大于 1M 的文件
+
+# 按时间条件查找
+find . -mtime 3      # 查找3天前更改过的文件
+find . -mtime -3     # 查找3天内更改过的文件
+find . -mtime 0      # 查 找今天更改过的文件
+find . -newer file   # 查找比 file 修改时间更新的文件
+find . -anewer file  # 查找比 file 访问时间更新的文件
+find . -amin 5       # 查找 5 分钟之前访问过的文件
+
+
