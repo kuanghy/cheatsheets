@@ -1,0 +1,4 @@
+# rsync
+
+# 合并两个目录
+rsync -av /src/ /dest/

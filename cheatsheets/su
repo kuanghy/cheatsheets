@@ -1,0 +1,19 @@
+# su 切换用户（switch user）
+
+用法：
+
+su <username>
+su - <username>
+
+不指定用户时默认切换到 root 用户
+
+# 参数
+-, -l, --login  以 login-shell 方式切换用户
+-m, -p, --preserve-environment 切换用户后不改变当前的工作环境（环境变量等不会被重置）
+-s shell  指定切换用户后使用的 shell
+-c, --command=command  以指定用户运行命令
+
+# 以 login-shell 方式切换用户
+$ sudo su - root
+$ echo $USER $HOME
+root /root
