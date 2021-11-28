@@ -37,8 +37,8 @@ find . -maxdepth 1 -mindepth 1 -type d
 find ~/logs -type f -a -not -name "*.gz"
 
 # 按文件大小查找
-find ./ -size 1k  # 查找当前目录下小于 1k 的文件
-find -size +1M    # 查找当前目录下大于 1M 的文件
+find . -size 1k     # 查找当前目录下小于 1k 的文件
+find . -size +1M    # 查找当前目录下大于 1M 的文件
 
 # 按时间条件查找
 find . -mtime 3      # 查找3天前更改过的文件
