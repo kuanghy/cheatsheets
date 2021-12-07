@@ -27,6 +27,10 @@ seg 's/text/replace_text/g' file
 # 默认替换后，输出替换后的内容（如果需要直接修改原文件，使用 -i 参数）
 seg -i 's/text/repalce_text/g' file
 
+# 递归替换当前目录下的文件
+find . -type f -name "*.py" | xargs sed -i "s/xxx/yyy/g"
+sed -i "s/xxx/yyy/g" `grep xxx -rl .`
+
 # 替换每一行的第一处匹配的text
 seg 's/text/replace_text/' file
 

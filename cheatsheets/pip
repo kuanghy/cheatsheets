@@ -1,0 +1,4 @@
+# pip
+
+# 查看所有配置
+pip config -v list

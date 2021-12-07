@@ -50,3 +50,6 @@ grep -rl --exclude=*.{png,jpg} "hello" *
 # 排除指定目录
 grep -Rw --exclude-dir=pki "hello" /etc/
 grep -r --exclude-dir={proc,boot,sys} "hello" /
+
+# 在压缩文件中查找
+zgrep -i error /var/log/syslog.2.gz
