@@ -10,7 +10,7 @@
 -d delim  分隔符，默认换行符和空格作为分隔符
 -0，--null 以 null，即 '\0' 作为分隔符，接受到的特殊字符将当作文本符号处理
 -n num  表示命令在执行的时候一次用的 arg 的个数，默认是用所有的
--L num  指定多少行作为一个命令行参数，即先已换行符作为分隔符
+-L num  指定多少行作为一个命令行参数，即先以换行符作为分隔符
 -i flag  指定参数替换符号，默认是 {}，该参数是过时，不建议使用
 -I flag  与 -i 同样的功能，但需要自己使用替换符号（此时默认以换行符作为分隔符）
 -a，--arg-file file  从指定文件中读入作为标准输入
@@ -52,4 +52,7 @@ find . -maxdepth 2 -name ".git" | xargs -i git --git-dir={} remote -v
 echo -e 'a,b,c' | tr , '\0' | xargs -0 -n 1
 
 # 分隔字符串时会多出来一个空行，可以用 sed 先去除
- echo "a,b,c" | xargs -d, -n1 | sed '$d'
+echo "a,b,c" | xargs -d, -n1 | sed '$d'
+
+# 从文件中读取内容作为输入
+xargs -a file -t -I$ echo $
