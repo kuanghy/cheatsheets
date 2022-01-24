@@ -13,6 +13,8 @@ date -s "20120523 01:01:01"
 date
 
 # 格式化输出
+date +%F  # 2020-01-01
+date +%X  # 00:00:01
 date +%Y%m%d  # 20200101
 date +'%Y-%m-%d %H:%M:%S'  # 2020-01-01 00:00:01
 
@@ -23,8 +25,8 @@ date -d tomorrow +%F       # 明天
 date -d "+1 day" +%F       # 后一天
 date -d 'next monday' +%F  # 下一个星期一
 
-# 获取当前时间戳
-date +%s
-
 # 将时间戳转化为可读的时间格式
 date -d@1234567890 +"%Y-%m-%d %H:%M:%S"
+
+# 获取当前时间戳
+date +%s
