@@ -8,7 +8,7 @@
 -o,  --output-file=FILE      将日志信息写入 FILE
 -i,  --input-file=FILE       下载本地或外部 FILE 中的 URLs
 -t,  --tries=NUMBER          设置重试次数为 NUMBER (0 代表无限制)
--O,  --output-document=FILE  将文档写入 FILE
+-O,  --output-document=FILE  将文档写入 FILE，如果为 - 则输出到标准输出
 -c,  --continue              断点续传下载文件
 -N,  --timestamping          只获取比本地文件新的文件
 -T,  --timeout=SECONDS       将所有超时设为 SECONDS 秒。
@@ -45,6 +45,9 @@ wget http://files.org/file.tar.gz
 
 # 下载到指定的文件中
 wget http://files.org/file.tar.gz -O file-new.tar.gz
+
+# 将下载内容打印到标准输出
+wget http://files.org/file.tar.gz -O-
 
 # 同时下载过个文件（接多个文件 url 地址）
 wget http://files.org/file.tar.gz ftp://ftp.files.org/file.tar.gz
