@@ -59,6 +59,13 @@ curl -u user:pwd http://konghy.cn
 # 发送 POST 请求
 curl -X POST https://www.example.com
 
+# 发送 POST 请求并传递表单数据
+curl -X POST -F "user=huoty" -F "pwd=123456" https://www.example.com
+curl -X POST -d "user=huoty&pwd=123456" https://www.example.com
+
+# 发送 POST 请求并传递 json 数据
+curl -X POST -H "Content-Type:application/json" -d '{"user":"huoty","pwd":"123456"}' https://www.example.com
+
 # 从文件中读取 POST 数据并发送
 curl -d '@data.txt' https://google.com/login
 
