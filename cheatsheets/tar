@@ -12,6 +12,8 @@
 -t  列出归档文件内容
 -C, --directory=DIR
     释放归档文件到指定目录
+--remove-files
+    归档之后删除源文件
 
 # 打包文件夹
 tar czvf xxx.tar.gz xxx/
