@@ -39,3 +39,7 @@ mount -t nfs -o rw,nolock,rsize=1048576,wsize=1048576 192.168.8.18:/export/data 
 
 # 将目录挂载到另一个目录
 mount --bind /some/where /else/where
+
+# 挂载 fstab 中的所有文件系
+mount -a
+mount --all

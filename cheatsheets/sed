@@ -22,17 +22,25 @@ s: 模式匹配替换
 p：打印文本
 
 # 全局替换
-seg 's/text/replace_text/g' file
+sed 's/text/replace_text/g' file
+
+# 替换当天目录下的所有文件
+find . -type f | xargs -n1 sed 's/text/replace_text/g'
 
 # 默认替换后，输出替换后的内容（如果需要直接修改原文件，使用 -i 参数）
-seg -i 's/text/repalce_text/g' file
+sed -i 's/text/repalce_text/g' file
+
+# 在 macOS 系统中，-i 参数需要执行一个参数作为备份文件的后缀
+# 如果不需要备份，则使用 -i ""
+sed -i ".bak" 's/text/repalce_text/g' file
+sed -i "" 's/text/repalce_text/g' file
 
 # 递归替换当前目录下的文件
 find . -type f -name "*.py" | xargs sed -i "s/xxx/yyy/g"
 sed -i "s/xxx/yyy/g" `grep xxx -rl .`
 
 # 替换每一行的第一处匹配的text
-seg 's/text/replace_text/' file
+sed 's/text/replace_text/' file
 
 # 移除空白行
 sed '/^$/d' file
