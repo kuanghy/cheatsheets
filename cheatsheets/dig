@@ -1,0 +1,4 @@
+# dig
+
+# 仅显示 IP 地址
+dig +short baidu.com
