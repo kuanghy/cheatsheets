@@ -1,4 +1,43 @@
-# dig
+# dig  DNS 查询工具
 
-# 仅显示 IP 地址
-dig +short baidu.com
+# 查询根的 NS 记录
+dig
+dig -t NS .
+
+# 查询 A 记录并返回简短信息
+dig A +noall +answer konghy.cn
+dig -t A +noall +answer konghy.cn
+
+# 查询 NS 记录（只有一级域名有 NS 记录）
+dig -t NS konghy.cn
+
+# 查询指定记录的两种形式
+dig -t MX mail.konghy.cn
+dig blog.konghy.cn AAAA
+
+# 查询所有的记录
+dig konghy.cn ANY
+
+# 从文件中读取域名并查询
+dig -f domain.txt
+
+# 不使用 Local DNS，而是直接从根服务器迭代查询，以跟踪域名解析的整个过程
+dig +trace blog.konghy.cn
+
+# 仅提供简短的答复（仅显示 IP 地址）
+dig +short blog.konghy.cn
+
+# 使用 TCP 方式查询
+dig +tcp konghy.cn
+
+# 指定 DNS 服务器
+dig @8.8.8.8 blog.konghy.cn
+
+# 指定 DNS 服务器以及端口(默认使用 53 端口)
+dig @8.8.8.8 -p 5300 blog.konghy.com
+
+# 设置超时时间和超时次数
+dig @8.8.8.8 +time=10 +tries=6 blog.konghy.cn
+
+# 反向查询
+dig -x 39.156.69.79
