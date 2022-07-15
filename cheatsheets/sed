@@ -19,12 +19,13 @@ a：append，追加文本
 i：insert，插入文本
 d：delete，删除文本
 s: 模式匹配替换
+c: 行替换
 p：打印文本
 
 # 全局替换
 sed 's/text/replace_text/g' file
 
-# 替换当天目录下的所有文件
+# 替换当前目录下的所有文件
 find . -type f | xargs -n1 sed 's/text/replace_text/g'
 
 # 默认替换后，输出替换后的内容（如果需要直接修改原文件，使用 -i 参数）
@@ -47,3 +48,6 @@ sed '/^$/d' file
 
 # 输出文件中指定范围的行，如输出文件 8~18 行内容
 sed -n '8,18p' file
+
+# (替换指定行的数据)将第一行替换为指定内容
+sed '1c hello world'
