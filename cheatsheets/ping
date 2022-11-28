@@ -6,5 +6,5 @@ ping -c 5 baidu.com
 # 指定运行的时间，超过该时间后停止
 ping -w 5 baidu.com
 
-# 指定等待响应的超市时间
+# 指定等待响应的超时时间
 ping -W 5 baidu.com

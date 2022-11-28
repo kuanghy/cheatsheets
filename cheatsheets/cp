@@ -11,3 +11,4 @@
 -n：如果目标文件已存在，则跳过，不要覆盖写
 --preserve：指定复制时要保持的属性，默认为 mode,ownership,timestamps，还可以为 context, links, xattr, all
 --no-preserve：指定复制时不保持的属性
+--parents：复制时保留文件的目录结构
