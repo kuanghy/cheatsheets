@@ -11,12 +11,15 @@
 -m  还原文件时把文件修改时间设为当前
 -t  列出归档文件内容
 -C, --directory=DIR
-    释放归档文件到指定目录
+    指定压缩或解压时的父目录
 --remove-files
     归档之后删除源文件
 
 # 打包文件夹
 tar czvf xxx.tar.gz xxx/
+
+# 打包时忽略父目录
+tar -C /tmp/data/ -czvf xxx.tar.gz xxx/
 
 # 解压文件
 tar zxvf xxx.tar.gz

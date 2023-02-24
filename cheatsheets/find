@@ -33,6 +33,7 @@ find . -regex '.*test.log.2021-0[1-8].*'
 # 查找当前目录下的目录
 find . -maxdepth 1 -mindepth 1 -type d
 find . -maxdepth 1 -type d ! -path .
+find . -maxdepth 1 -type d -not -path .
 
 # 查找非 gz 压缩的文件
 find ~/logs -type f -a -not -name "*.gz"

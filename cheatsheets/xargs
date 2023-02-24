@@ -56,3 +56,6 @@ echo "a,b,c" | xargs -d, -n1 | sed '$d'
 
 # 从文件中读取内容作为输入
 xargs -a file -t -I$ echo $
+
+# 使用多进程
+ls -1 | xargs -t -n1 -P10 sudo chmod 600
