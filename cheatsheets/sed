@@ -49,5 +49,8 @@ sed '/^$/d' file
 # 输出文件中指定范围的行，如输出文件 8~18 行内容
 sed -n '8,18p' file
 
+# 统计文件中某一行的长度
+sed -n '5 p' file | wc -c
+
 # (替换指定行的数据)将第一行替换为指定内容
 sed '1c hello world'

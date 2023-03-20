@@ -1,0 +1,7 @@
+# kill
+
+# 暂停进程（进程进入暂停 T 状态）
+kill -STOP <PID>
+
+# 继续进程（进程从暂停 T 状态 变为 运行 R 状态）
+kill -CONT <PID>
