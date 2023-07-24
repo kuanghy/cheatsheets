@@ -1,3 +1,6 @@
 # less 逐屏查看文件内容
 
 类似 more，但比 more 支持更多的特性
+
+# 显示行号
+less -N file

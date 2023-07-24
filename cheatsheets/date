@@ -30,3 +30,6 @@ date -d@1234567890 +"%Y-%m-%d %H:%M:%S"
 
 # 获取当前时间戳
 date +%s
+
+# 生成一段时间范围内的日期
+ echo {6..0} | xargs -I{} -d ' ' date --date='{} days ago' +'%Y-%m-%d'
