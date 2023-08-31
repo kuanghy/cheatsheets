@@ -6,6 +6,7 @@
 -type  匹配文件类型
 -user  匹配用户
 -size  匹配文件大小
+-links  匹配硬链接数
 -mtime，-atime，-ctime  # 匹配时间
 -newer，-anewer，-cnewer
 -amin，-cmin
@@ -43,6 +44,9 @@ find . -size -1c     # 查找当前目录下小于 1 字节的文件
 find . -size 1k      # 查找当前目录下等于 1k 的文件
 find . -size +1M     # 查找当前目录下大于 1M 的文件
 find . -empty        # 查找当天目录下字节为 0 的文件(即空文件)
+
+# 按硬链接数查找
+find . -type f -links 1
 
 # 按时间条件查找
 find . -mtime 3      # 查找3天前更改过的文件
