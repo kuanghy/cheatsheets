@@ -34,6 +34,7 @@ y 假设对全部询问都回答是
 # 查看压缩文件内容
 rar l test.rar
 unrar l test.rar
+rar vt test.rar
 
 # 压缩所有 jpg 文件，压缩文件会自动添加 rar 后缀
 rar a all *.jpg
