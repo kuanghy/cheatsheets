@@ -1,0 +1,4 @@
+sar
+
+# 统计网卡流量
+sar -n DEV 1 59 | grep Average | grep eth0 | awk '{print $2,"\t","input:","\t",$5*1000*8,"bps","\n",$2,"\t","output:","\t",$6*1000*8,"bps"}'
