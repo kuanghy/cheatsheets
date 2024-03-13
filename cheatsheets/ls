@@ -42,6 +42,17 @@
 -X  根据扩展名排序
 -1  每行只列出一个文件
 
+# 指定时间显示格式的 --time-style 参数
+支持的选线：
+    full-iso：显示完整的 ISO 8601 日期和时间格式，包括年、月、日、小时、分钟和秒
+    long-iso：与 full-iso 类似，但格式可能略有不同，通常也包含完整的日期和时间信息
+    iso：显示简化的 ISO 8601 格式，仅包括日期
+    locale：根据当前的语言环境设置显示日期和时间格式
+    自定义格式：如 "+%Y-%m-%d %H:%M:%S"
+示例：
+    ls -l --time-style="+%Y-%m-%d %H:%M:%S"
+    ls -l --time-style=full-iso
+
 # 将目录下的非 .tar.gz 结尾的文件压缩成 .tar.gz 文件
 ls -I "*.tar.gz" | xargs -t -n 1 -i tar czvf {}.tar.gz {}
 ls -I "*.tar.gz" | xargs -t -n 1 -i rm -rfv {}
