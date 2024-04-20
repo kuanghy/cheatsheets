@@ -1,0 +1,20 @@
+# 列出所有服务
+systemctl list-units --type=service --all
+
+# 列出当前活跃的服务
+systemctl list-units --type=service
+
+#列出自动启动的服务
+systemctl list-unit-files --type=service --state=enabled
+
+# 查看服务状态
+systemctl status your-service-name.service
+
+# 设置为开机启动
+systemctl enable your-service-name.service
+
+# 启动服务
+systemctl start your-service-name.service
+
+# 重启服务
+systemctl restart your-service-name.service
